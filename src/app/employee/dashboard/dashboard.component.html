@@ -1,0 +1,33 @@
+<div id="content">
+  <p>Employees</p>
+  <select (change)="onChangeStatus($event)">
+    <option *ngFor="let option of options">{{option}}</option>
+  </select>
+  <select (change)="onChangeDepartment($event)">
+    <option *ngFor="let department of departments">{{department}}</option>
+  </select>
+  <a [routerLink]="['create']">
+    <button style="width: 100px; display: block" type="button">Create</button>
+  </a>
+  <div id="content-inner">
+
+    <div *ngFor="let employee of employees">
+      <div class="card">
+        <p>{{employee.email}}</p>
+        <h1>{{employee.name}}</h1>
+        <p class="title">{{employee.mobile}}</p>
+        <p>{{employee.address}}</p>
+        <div style="margin: 24px 0;">
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <p><a [routerLink]="['details/' + employee.id]">
+          <button>Details</button>
+        </a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
